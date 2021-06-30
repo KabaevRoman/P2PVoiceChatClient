@@ -24,19 +24,19 @@ public class RecorderThread extends Thread {
 
     @Override
     public void run() {
-        int counter = 0;
+        //int counter = 0;
         while (running) {
             audioInput.read(buffer, 0, buffer.length);
             DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length, serverAddress, serverPort);
-            System.err.println("send #" + counter);
-            counter++;
+            //System.out.println("send #" + counter);
+            //counter++;
             try {
                 datagramSocket.send(datagramPacket);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("Thread ended successfully");
+        System.out.println("Recorder thread ended successfully");
         audioInput.close();
         audioInput.drain();
     }

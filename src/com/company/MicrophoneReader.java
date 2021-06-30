@@ -21,5 +21,6 @@ public class MicrophoneReader {
     public void close() {
         audioInput.close();
         audioInput.drain();
+        System.out.println("Microphone has finished");
     }
 }

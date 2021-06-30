@@ -20,7 +20,7 @@ public class PlayerThread extends Thread {
     }
 
     public void run() {
-        int count = 0;
+        //int count = 0;
         DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
         while (running) {
             try {
@@ -30,7 +30,7 @@ public class PlayerThread extends Thread {
             }
             buffer = datagramPacket.getData();
             audioOutput.write(buffer, 0, buffer.length);
-            System.out.println("#"+count++);
+            //System.out.println("#"+count++); for diagnostics
         }
         audioOutput.close();
         audioOutput.drain();

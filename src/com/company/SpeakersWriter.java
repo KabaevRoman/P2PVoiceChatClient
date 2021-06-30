@@ -23,6 +23,7 @@ public class SpeakersWriter {
     public void close() {
         audioOutput.close();
         audioOutput.drain();
+        System.out.println("Speakers have finished");
     }
 
 }
