@@ -46,9 +46,9 @@ public class RecorderThread extends Thread {
                 e.printStackTrace();
             }
         }
-        System.out.println("Recorder thread ended successfully");
         audioInput.close();
         audioInput.drain();
+        System.out.println("Recorder thread ended successfully");
     }
 
     public void close() {

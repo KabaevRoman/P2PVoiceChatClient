@@ -26,6 +26,7 @@ public class PlayerThread extends Thread {
         this.running = true;
     }
 
+    @Override
     public void run() {
         //int count = 0;
         DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
@@ -41,7 +42,7 @@ public class PlayerThread extends Thread {
         }
         audioOutput.close();
         audioOutput.drain();
-        System.out.println("Thread ended successfully");
+        System.out.println("Player thread has ended successfully");
     }
 
     public void close() {
