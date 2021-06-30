@@ -19,6 +19,13 @@ public class PlayerThread extends Thread {
         this.running = true;
     }
 
+    public PlayerThread(SourceDataLine audioOutput, int port) throws SocketException {
+        this.datagramSocketIn = new DatagramSocket(port);
+        this.audioOutput = audioOutput;
+        this.buffer = new byte[512];
+        this.running = true;
+    }
+
     public void run() {
         //int count = 0;
         DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);

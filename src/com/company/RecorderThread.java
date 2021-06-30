@@ -22,6 +22,16 @@ public class RecorderThread extends Thread {
         this.running = true;
     }
 
+    public RecorderThread(TargetDataLine audioInput, int port, String address) throws SocketException, UnknownHostException {
+        this.audioInput = audioInput;
+        this.datagramSocket = new DatagramSocket();
+        this.serverAddress = InetAddress.getByName(address);
+        this.serverPort = port;
+        this.buffer = new byte[512];
+        this.running = true;
+    }
+
+
     @Override
     public void run() {
         //int counter = 0;
